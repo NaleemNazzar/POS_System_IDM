@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing;
-using System.Collections;
-using System.Reflection;
 using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
+using System.Collections;
 
 namespace POS_System
 {
     class MainClass
     {
+        // Connection string for the database
         public static readonly string con_string = "Data Source=DESKTOP-F0KSCG6\\SQLEXPRESS; Initial Catalog=POS;Integrated Security=True;";
         public static SqlConnection con = new SqlConnection(con_string);
 
@@ -22,21 +20,31 @@ namespace POS_System
         public static bool IsValidUser(string user, string pass)
         {
             bool isValid = false;
-            string qry = @"Select * From users where uUsername = '" + user + "' and upass ='" + pass + "' ";
+            string qry = "Select * From users where uUsername = @user and upass = @pass"; // Parameterized query to prevent SQL injection
 
-            SqlCommand cmd = new SqlCommand(qry, con);
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-
-            if (dt.Rows.Count > 0)
+            // Using statement ensures the SqlCommand is disposed of correctly
+            using (SqlCommand cmd = new SqlCommand(qry, con))
             {
-                isValid = true;
-                USER = dt.Rows[0]["uName"].ToString();
+                cmd.Parameters.AddWithValue("@user", user);
+                cmd.Parameters.AddWithValue("@pass", pass);
 
-                Byte[] imageArray = (byte[])dt.Rows[0]["uImage"];
-                IMG = Image.FromStream(new MemoryStream(imageArray));
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd)) // Using statement ensures the SqlDataAdapter is disposed of correctly
+                {
+                    da.Fill(dt); // Fill the DataTable with query results
+                }
+
+                // Check if any rows are returned, indicating a valid user
+                if (dt.Rows.Count > 0)
+                {
+                    isValid = true;
+                    USER = dt.Rows[0]["uName"].ToString(); // Set the username
+
+                    Byte[] imageArray = (byte[])dt.Rows[0]["uImage"]; // Retrieve the user image as a byte array
+                    IMG = Image.FromStream(new MemoryStream(imageArray)); // Convert byte array to Image
+                }
             }
+
             return isValid;
         }
 
@@ -45,6 +53,7 @@ namespace POS_System
         {
             try
             {
+                // Use reflection to set the DoubleBuffered property of the control
                 typeof(Control).InvokeMember("DoubleBuffered",
                     BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
                     null, ctr, new object[] { doubleBuffer });
@@ -56,8 +65,7 @@ namespace POS_System
         }
 
         // Property for username
-        public static string user;
-
+        private static string user;
         public static string USER
         {
             get { return user; }
@@ -65,8 +73,7 @@ namespace POS_System
         }
 
         // Property for user image
-        public static Image img;
-
+        private static Image img;
         public static Image IMG
         {
             get { return img; }
@@ -80,55 +87,66 @@ namespace POS_System
 
             try
             {
-                SqlCommand cmd = new SqlCommand(qry, con)
+                using (SqlCommand cmd = new SqlCommand(qry, con)) // Using statement ensures the SqlCommand is disposed of correctly
                 {
-                    CommandType = CommandType.Text
-                };
+                    cmd.CommandType = CommandType.Text;
 
-                foreach (DictionaryEntry item in ht)
-                {
-                    cmd.Parameters.AddWithValue(item.Key.ToString(), item.Value);
+                    // Add parameters to the command
+                    foreach (DictionaryEntry item in ht)
+                    {
+                        cmd.Parameters.AddWithValue(item.Key.ToString(), item.Value);
+                    }
+
+                    if (con.State == ConnectionState.Closed) { con.Open(); }
+                    res = cmd.ExecuteNonQuery(); // Execute the command
                 }
-                if (con.State == ConnectionState.Closed) { con.Open(); }
-                res = cmd.ExecuteNonQuery();
-                if (con.State == ConnectionState.Open) { con.Close(); }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                con.Close();
             }
+            finally
+            {
+                if (con.State == ConnectionState.Open) { con.Close(); }
+            }
+
             return res;
         }
 
         // Method for loading data from database
         public static void LoadData(string qry, DataGridView gv, ListBox lb)
         {
+            // Attach a cell formatting event handler
             gv.CellFormatting += new DataGridViewCellFormattingEventHandler(Gv_CellFormatting);
+
             try
             {
-                SqlCommand cmd = new SqlCommand(qry, con)
+                using (SqlCommand cmd = new SqlCommand(qry, con)) // Using statement ensures the SqlCommand is disposed of correctly
                 {
-                    CommandType = CommandType.Text
-                };
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                    cmd.CommandType = CommandType.Text;
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd)) // Using statement ensures the SqlDataAdapter is disposed of correctly
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt); // Fill the DataTable with query results
 
-                for (int i = 0; i < lb.Items.Count; i++)
-                {
-                    string colName = ((DataGridViewColumn)lb.Items[i]).Name;
-                    gv.Columns[colName].DataPropertyName = dt.Columns[i].ToString();
+                        // Map DataTable columns to DataGridView columns
+                        for (int i = 0; i < lb.Items.Count; i++)
+                        {
+                            string colName = ((DataGridViewColumn)lb.Items[i]).Name;
+                            gv.Columns[colName].DataPropertyName = dt.Columns[i].ToString();
+                        }
+                        gv.DataSource = dt; // Set the DataGridView's data source
+                    }
                 }
-                gv.DataSource = dt;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                con.Close();
+                if (con.State == ConnectionState.Open) { con.Close(); }
             }
         }
 
+        // Event handler for cell formatting
         private static void Gv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Implement cell formatting logic if needed
@@ -138,7 +156,7 @@ namespace POS_System
         public static void BlurBackground(Form Model)
         {
             Form Background = new Form();
-            using (Model)
+            using (Model) // Using statement ensures the Form is disposed of correctly
             {
                 Background.StartPosition = FormStartPosition.Manual;
                 Background.FormBorderStyle = FormBorderStyle.None;
@@ -157,36 +175,39 @@ namespace POS_System
         // Method for filling ComboBox
         public static void CBFILL(string qry, ComboBox cb)
         {
-            SqlCommand cmd = new SqlCommand(qry, con)
+            using (SqlCommand cmd = new SqlCommand(qry, con)) // Using statement ensures the SqlCommand is disposed of correctly
             {
-                CommandType = CommandType.Text
-            };
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                cmd.CommandType = CommandType.Text;
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd)) // Using statement ensures the SqlDataAdapter is disposed of correctly
+                {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt); // Fill the DataTable with query results
 
-            cb.DisplayMember = "name";
-            cb.ValueMember = "id";
-            cb.DataSource = dt;
-            cb.SelectedIndex = -1;
+                    cb.DisplayMember = "name"; // Display member in ComboBox
+                    cb.ValueMember = "id"; // Value member in ComboBox
+                    cb.DataSource = dt; // Set the ComboBox's data source
+                    cb.SelectedIndex = -1; // Set default selection
+                }
+            }
         }
 
         // Method for validation
         public static bool Validation(Form F)
         {
-            bool isValid = false;
+            bool isValid = true;
             int count = 0;
 
+            // Iterate through each control in the form
             foreach (Control c in F.Controls)
             {
-                if (Convert.ToString(c.Tag) != "" && Convert.ToString(c.Tag) != null)
+                if (!string.IsNullOrEmpty(Convert.ToString(c.Tag)))
                 {
-                    if (c is TextBox)
+                    if (c is TextBox t)
                     {
-                        TextBox t = (TextBox)c;
-                        if (t.Text.Trim() == "")
+                        // Check if the TextBox is empty
+                        if (string.IsNullOrWhiteSpace(t.Text))
                         {
-                            t.BackColor = Color.Red; // Use BackColor to indicate invalid input
+                            t.BackColor = Color.Red; // Indicate invalid input with red background
                             count++;
                         }
                         else
@@ -195,22 +216,9 @@ namespace POS_System
                         }
                     }
                 }
-                if (count > 0)
-                {
-                    isValid = true;
-                }
-                else
-                {
-                    isValid = false;
-                }
             }
 
-            // Set isValid to true if no invalid controls were found
-            if (count == 0)
-            {
-                isValid = true;
-            }
-
+            isValid = count == 0; // Set isValid to true if no invalid controls were found
             return isValid;
         }
     }
