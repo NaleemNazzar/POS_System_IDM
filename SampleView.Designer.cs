@@ -48,7 +48,7 @@
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel1.Location = new System.Drawing.Point(0, 0);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(778, 150);
+            this.Panel1.Size = new System.Drawing.Size(800, 150);
             this.Panel1.TabIndex = 1;
             // 
             // TxtSearch
@@ -56,7 +56,7 @@
             this.TxtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtSearch.BackColor = System.Drawing.SystemColors.Window;
             this.TxtSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.TxtSearch.Location = new System.Drawing.Point(478, 87);
+            this.TxtSearch.Location = new System.Drawing.Point(500, 87);
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(250, 33);
             this.TxtSearch.TabIndex = 3;
@@ -68,7 +68,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(473, 54);
+            this.label2.Location = new System.Drawing.Point(495, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 30);
             this.label2.TabIndex = 1;
@@ -88,7 +88,7 @@
             // 
             this.PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.PictureBox1.Image = global::POS_System.Properties.Resources.Search;
-            this.PictureBox1.Location = new System.Drawing.Point(484, 95);
+            this.PictureBox1.Location = new System.Drawing.Point(506, 95);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(15, 15);
             this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -116,7 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
-            this.ClientSize = new System.Drawing.Size(778, 444);
+            this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.Panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));

@@ -65,6 +65,18 @@
     <Compile Include="Model\FrmCategoryAdd.Designer.cs">
       <DependentUpon>FrmCategoryAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FrmCustomerAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FrmCustomerAdd.Designer.cs">
+      <DependentUpon>FrmCustomerAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FrmSupplierAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FrmSupplierAdd.Designer.cs">
+      <DependentUpon>FrmSupplierAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FrmUserAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,18 @@
     <Compile Include="View\FrmCategoryView.Designer.cs">
       <DependentUpon>FrmCategoryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmCustomerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmCustomerView.Designer.cs">
+      <DependentUpon>FrmCustomerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmSupplierView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmSupplierView.Designer.cs">
+      <DependentUpon>FrmSupplierView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmUserView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\FrmCategoryAdd.resx">
       <DependentUpon>FrmCategoryAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\FrmCustomerAdd.resx">
+      <DependentUpon>FrmCustomerAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\FrmSupplierAdd.resx">
+      <DependentUpon>FrmSupplierAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model\FrmUserAdd.resx">
       <DependentUpon>FrmUserAdd.cs</DependentUpon>
@@ -136,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmCategoryView.resx">
       <DependentUpon>FrmCategoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmCustomerView.resx">
+      <DependentUpon>FrmCustomerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmSupplierView.resx">
+      <DependentUpon>FrmSupplierView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmUserView.resx">
       <DependentUpon>FrmUserView.cs</DependentUpon>

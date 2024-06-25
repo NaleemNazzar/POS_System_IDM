@@ -1,6 +1,6 @@
 ﻿namespace POS_System.View
 {
-    partial class FrmUserView
+    partial class FrmSupplierView
     {
         /// <summary>
         /// Required designer variable.
@@ -37,14 +37,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.DgvSr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dgvname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DgvuserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dgvpass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dgvphone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.DgvDel = new System.Windows.Forms.DataGridViewImageColumn();
             this.Panel1.SuspendLayout();
@@ -69,7 +66,7 @@
             // 
             this.PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.PictureBox1.Image = global::POS_System.Properties.Resources.Search;
-            this.PictureBox1.Location = new System.Drawing.Point(508, 95);
+            this.PictureBox1.Location = new System.Drawing.Point(507, 95);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(15, 15);
             this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -121,9 +118,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label1.Location = new System.Drawing.Point(50, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 38);
+            this.label1.Size = new System.Drawing.Size(168, 38);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Sample Header";
+            this.label1.Text = "Supplier List";
             // 
             // DataGridView1
             // 
@@ -150,9 +147,8 @@
             this.DgvSr,
             this.Dgvid,
             this.Dgvname,
-            this.DgvuserName,
-            this.Dgvpass,
-            this.Dgvphone,
+            this.DgvPhone,
+            this.DgvEmail,
             this.DgvEdit,
             this.DgvDel});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -164,7 +160,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridView1.EnableHeadersVisualStyles = false;
-            this.DataGridView1.Location = new System.Drawing.Point(50, 190);
+            this.DataGridView1.Location = new System.Drawing.Point(50, 196);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.ReadOnly = true;
             this.DataGridView1.RowHeadersVisible = false;
@@ -172,28 +168,8 @@
             this.DataGridView1.RowTemplate.Height = 28;
             this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView1.Size = new System.Drawing.Size(700, 259);
-            this.DataGridView1.TabIndex = 3;
+            this.DataGridView1.TabIndex = 5;
             this.DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn1.FillWeight = 50F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::POS_System.Properties.Resources.add2;
-            this.dataGridViewImageColumn1.MinimumWidth = 50;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 50;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn2.FillWeight = 50F;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::POS_System.Properties.Resources.Delete;
-            this.dataGridViewImageColumn2.MinimumWidth = 50;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 50;
             // 
             // DgvSr
             // 
@@ -220,26 +196,19 @@
             this.Dgvname.Name = "Dgvname";
             this.Dgvname.ReadOnly = true;
             // 
-            // DgvuserName
+            // DgvPhone
             // 
-            this.DgvuserName.HeaderText = "Username";
-            this.DgvuserName.MinimumWidth = 8;
-            this.DgvuserName.Name = "DgvuserName";
-            this.DgvuserName.ReadOnly = true;
+            this.DgvPhone.HeaderText = "Phone";
+            this.DgvPhone.MinimumWidth = 8;
+            this.DgvPhone.Name = "DgvPhone";
+            this.DgvPhone.ReadOnly = true;
             // 
-            // Dgvpass
+            // DgvEmail
             // 
-            this.Dgvpass.HeaderText = "Pass";
-            this.Dgvpass.MinimumWidth = 8;
-            this.Dgvpass.Name = "Dgvpass";
-            this.Dgvpass.ReadOnly = true;
-            // 
-            // Dgvphone
-            // 
-            this.Dgvphone.HeaderText = "Phone";
-            this.Dgvphone.MinimumWidth = 8;
-            this.Dgvphone.Name = "Dgvphone";
-            this.Dgvphone.ReadOnly = true;
+            this.DgvEmail.HeaderText = "Email";
+            this.DgvEmail.MinimumWidth = 8;
+            this.DgvEmail.Name = "DgvEmail";
+            this.DgvEmail.ReadOnly = true;
             // 
             // DgvEdit
             // 
@@ -263,7 +232,7 @@
             this.DgvDel.ReadOnly = true;
             this.DgvDel.Width = 50;
             // 
-            // FrmUserView
+            // FrmSupplierView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -274,9 +243,10 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmUserView";
-            this.Text = "FrmUserView";
-            this.Load += new System.EventHandler(this.FrmUserView_Load);
+            this.Name = "FrmSupplierView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FrmSupplierView";
+            this.Load += new System.EventHandler(this.FrmSupplierView_Load);
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
@@ -294,14 +264,11 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DataGridView1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn DgvSr;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dgvid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dgvname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DgvuserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dgvpass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dgvphone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvEmail;
         private System.Windows.Forms.DataGridViewImageColumn DgvEdit;
         private System.Windows.Forms.DataGridViewImageColumn DgvDel;
     }

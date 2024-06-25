@@ -49,13 +49,21 @@ namespace POS_System
             if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
-
             }
             else if (this.WindowState == FormWindowState.Maximized)
             {
                 this.WindowState = FormWindowState.Normal;
-
+                CenterForm();
             }
+        }
+
+        private void CenterForm()
+        {
+            // Manually center the form on the screen
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(
+                (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
         }
 
         private void Minimize_Click(object sender, EventArgs e)
@@ -71,6 +79,16 @@ namespace POS_System
         private void BtnCategory_Click(object sender, EventArgs e)
         {
             AddControls(new FrmCategoryView());
+        }
+
+        private void BtnSupplier_Click(object sender, EventArgs e)
+        {
+            AddControls(new FrmSupplierView());
+        }
+
+        private void BtnCustomers_Click(object sender, EventArgs e)
+        {
+            AddControls(new FrmCustomerView());
         }
     }
 }
