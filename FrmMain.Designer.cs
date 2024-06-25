@@ -242,7 +242,7 @@
             this.BtnCategory.Text = "   Category";
             this.BtnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnCategory.UseVisualStyleBackColor = false;
-            this.BtnCategory.Click += new System.EventHandler(this.button11_Click);
+            this.BtnCategory.Click += new System.EventHandler(this.BtnCategory_Click);
             // 
             // BtnHome
             // 

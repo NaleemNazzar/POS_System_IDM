@@ -39,11 +39,6 @@ namespace POS_System
             F.Show();
         }
 
-        private void button11_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -71,6 +66,11 @@ namespace POS_System
         private void BtnUsers_Click(object sender, EventArgs e)
         {
             AddControls(new FrmUserView());
+        }
+
+        private void BtnCategory_Click(object sender, EventArgs e)
+        {
+            AddControls(new FrmCategoryView());
         }
     }
 }
