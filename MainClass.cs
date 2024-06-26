@@ -114,28 +114,36 @@ namespace POS_System
         }
 
         // Method for loading data from database
+
         public static void LoadData(string qry, DataGridView gv, ListBox lb)
         {
-            // Attach a cell formatting event handler
             gv.CellFormatting += new DataGridViewCellFormattingEventHandler(Gv_CellFormatting);
 
             try
             {
-                using (SqlCommand cmd = new SqlCommand(qry, con)) // Using statement ensures the SqlCommand is disposed of correctly
+                using (SqlCommand cmd = new SqlCommand(qry, con))
                 {
                     cmd.CommandType = CommandType.Text;
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd)) // Using statement ensures the SqlDataAdapter is disposed of correctly
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
-                        da.Fill(dt); // Fill the DataTable with query results
+                        da.Fill(dt);
 
-                        // Map DataTable columns to DataGridView columns
+                        if (dt.Columns.Count < lb.Items.Count)
+                        {
+                            MessageBox.Show("Mismatch between ListBox items and query result columns. Ensure ListBox contains only relevant columns.");
+                            return;
+                        }
+
                         for (int i = 0; i < lb.Items.Count; i++)
                         {
                             string colName = ((DataGridViewColumn)lb.Items[i]).Name;
-                            gv.Columns[colName].DataPropertyName = dt.Columns[i].ToString();
+                            if (i < dt.Columns.Count)
+                            {
+                                gv.Columns[colName].DataPropertyName = dt.Columns[i].ColumnName;
+                            }
                         }
-                        gv.DataSource = dt; // Set the DataGridView's data source
+                        gv.DataSource = dt;
                     }
                 }
             }
@@ -145,6 +153,7 @@ namespace POS_System
                 if (con.State == ConnectionState.Open) { con.Close(); }
             }
         }
+
 
         // Event handler for cell formatting
         private static void Gv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -220,6 +229,16 @@ namespace POS_System
 
             isValid = count == 0; // Set isValid to true if no invalid controls were found
             return isValid;
+        }
+
+        internal static void LoadData(string qry, DataGridView dataGridView1, Hashtable ht)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static DataTable GetDataTable(string qry, Hashtable ht)
+        {
+            throw new NotImplementedException();
         }
     }
 }

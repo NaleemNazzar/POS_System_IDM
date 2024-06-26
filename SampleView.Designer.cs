@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.TxtSearch = new System.Windows.Forms.TextBox();
+            this.BtnAdd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BtnAdd = new System.Windows.Forms.Button();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -51,6 +51,17 @@
             this.Panel1.Size = new System.Drawing.Size(800, 150);
             this.Panel1.TabIndex = 1;
             // 
+            // PictureBox1
+            // 
+            this.PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBox1.Image = global::POS_System.Properties.Resources.Search;
+            this.PictureBox1.Location = new System.Drawing.Point(506, 95);
+            this.PictureBox1.Name = "PictureBox1";
+            this.PictureBox1.Size = new System.Drawing.Size(15, 15);
+            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox1.TabIndex = 4;
+            this.PictureBox1.TabStop = false;
+            // 
             // TxtSearch
             // 
             this.TxtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -61,7 +72,24 @@
             this.TxtSearch.Size = new System.Drawing.Size(250, 33);
             this.TxtSearch.TabIndex = 3;
             this.TxtSearch.Text = "      Search Here";
+            this.TxtSearch.Click += new System.EventHandler(this.TxtSearch_TextChanged);
             this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            // 
+            // BtnAdd
+            // 
+            this.BtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(51)))), ((int)(((byte)(204)))));
+            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAdd.ForeColor = System.Drawing.Color.White;
+            this.BtnAdd.Image = global::POS_System.Properties.Resources.add;
+            this.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnAdd.Location = new System.Drawing.Point(50, 75);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(200, 45);
+            this.BtnAdd.TabIndex = 2;
+            this.BtnAdd.Text = "Add New";
+            this.BtnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAdd.UseVisualStyleBackColor = false;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // label2
             // 
@@ -83,33 +111,6 @@
             this.label1.Size = new System.Drawing.Size(206, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Sample Header";
-            // 
-            // PictureBox1
-            // 
-            this.PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBox1.Image = global::POS_System.Properties.Resources.Search;
-            this.PictureBox1.Location = new System.Drawing.Point(506, 95);
-            this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Size = new System.Drawing.Size(15, 15);
-            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox1.TabIndex = 4;
-            this.PictureBox1.TabStop = false;
-            // 
-            // BtnAdd
-            // 
-            this.BtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(51)))), ((int)(((byte)(204)))));
-            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAdd.ForeColor = System.Drawing.Color.White;
-            this.BtnAdd.Image = global::POS_System.Properties.Resources.add;
-            this.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnAdd.Location = new System.Drawing.Point(50, 75);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(200, 45);
-            this.BtnAdd.TabIndex = 2;
-            this.BtnAdd.Text = "Add New";
-            this.BtnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnAdd.UseVisualStyleBackColor = false;
-            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // SampleView
             // 

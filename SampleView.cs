@@ -12,7 +12,7 @@ namespace POS_System
 {
     public partial class SampleView : Form
     {
-        private bool isCleared = true;
+        private bool isCleared = false;
 
         public SampleView()
         {

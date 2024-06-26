@@ -83,6 +83,7 @@
             this.TxtSearch.Size = new System.Drawing.Size(250, 33);
             this.TxtSearch.TabIndex = 3;
             this.TxtSearch.Text = "      Search Here";
+            this.TxtSearch.Click += new System.EventHandler(this.TxtSearch_TextChanged);
             this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
             // BtnAdd

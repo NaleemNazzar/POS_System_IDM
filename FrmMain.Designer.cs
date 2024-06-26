@@ -34,6 +34,7 @@
             this.Minimize = new System.Windows.Forms.ToolStripButton();
             this.CenterPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnSupplier = new System.Windows.Forms.Button();
             this.BtnUsers = new System.Windows.Forms.Button();
             this.BtnSales = new System.Windows.Forms.Button();
             this.BtnCustomers = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.BtnHome = new System.Windows.Forms.Button();
             this.LblUser = new System.Windows.Forms.Label();
             this.PictureBox = new System.Windows.Forms.PictureBox();
-            this.BtnSupplier = new System.Windows.Forms.Button();
             this.toolStrip.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
@@ -131,6 +131,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 571);
             this.panel2.TabIndex = 27;
+            // 
+            // BtnSupplier
+            // 
+            this.BtnSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
+            this.BtnSupplier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnSupplier.FlatAppearance.BorderSize = 0;
+            this.BtnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSupplier.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.BtnSupplier.ForeColor = System.Drawing.Color.White;
+            this.BtnSupplier.Image = global::POS_System.Properties.Resources.Product;
+            this.BtnSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSupplier.Location = new System.Drawing.Point(50, 332);
+            this.BtnSupplier.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnSupplier.Name = "BtnSupplier";
+            this.BtnSupplier.Size = new System.Drawing.Size(150, 40);
+            this.BtnSupplier.TabIndex = 3;
+            this.BtnSupplier.Text = "   Supplier";
+            this.BtnSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnSupplier.UseVisualStyleBackColor = false;
+            this.BtnSupplier.Click += new System.EventHandler(this.BtnSupplier_Click);
             // 
             // BtnUsers
             // 
@@ -228,6 +248,7 @@
             this.BtnProduct.Text = "   Product";
             this.BtnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnProduct.UseVisualStyleBackColor = false;
+            this.BtnProduct.Click += new System.EventHandler(this.BtnProduct_Click);
             // 
             // BtnCategory
             // 
@@ -291,26 +312,6 @@
             this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBox.TabIndex = 0;
             this.PictureBox.TabStop = false;
-            // 
-            // BtnSupplier
-            // 
-            this.BtnSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
-            this.BtnSupplier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BtnSupplier.FlatAppearance.BorderSize = 0;
-            this.BtnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSupplier.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.BtnSupplier.ForeColor = System.Drawing.Color.White;
-            this.BtnSupplier.Image = global::POS_System.Properties.Resources.Product;
-            this.BtnSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSupplier.Location = new System.Drawing.Point(50, 332);
-            this.BtnSupplier.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnSupplier.Name = "BtnSupplier";
-            this.BtnSupplier.Size = new System.Drawing.Size(150, 40);
-            this.BtnSupplier.TabIndex = 3;
-            this.BtnSupplier.Text = "   Supplier";
-            this.BtnSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnSupplier.UseVisualStyleBackColor = false;
-            this.BtnSupplier.Click += new System.EventHandler(this.BtnSupplier_Click);
             // 
             // FrmMain
             // 

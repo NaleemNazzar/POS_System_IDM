@@ -1,6 +1,6 @@
 ﻿namespace POS_System.View
 {
-    partial class FrmSupplierView
+    partial class FrmProductView
     {
         /// <summary>
         /// Required designer variable.
@@ -40,8 +40,11 @@
             this.DgvSr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dgvname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DgvPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DgvEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvcatID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.DgvDel = new System.Windows.Forms.DataGridViewImageColumn();
             this.Panel1.SuspendLayout();
@@ -66,7 +69,7 @@
             // 
             this.PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.PictureBox1.Image = global::POS_System.Properties.Resources.Search;
-            this.PictureBox1.Location = new System.Drawing.Point(507, 95);
+            this.PictureBox1.Location = new System.Drawing.Point(506, 95);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(15, 15);
             this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -83,7 +86,6 @@
             this.TxtSearch.Size = new System.Drawing.Size(250, 33);
             this.TxtSearch.TabIndex = 3;
             this.TxtSearch.Text = "      Search Here";
-            this.TxtSearch.Click += new System.EventHandler(this.TxtSearch_TextChanged);
             this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
             // BtnAdd
@@ -119,9 +121,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label1.Location = new System.Drawing.Point(50, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 38);
+            this.label1.Size = new System.Drawing.Size(162, 38);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Supplier List";
+            this.label1.Text = "Product List";
             // 
             // DataGridView1
             // 
@@ -148,8 +150,11 @@
             this.DgvSr,
             this.Dgvid,
             this.Dgvname,
-            this.DgvPhone,
-            this.DgvEmail,
+            this.DgvcatID,
+            this.DgvCategory,
+            this.DgvBarcode,
+            this.DgvCost,
+            this.DgvSale,
             this.DgvEdit,
             this.DgvDel});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -161,7 +166,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridView1.EnableHeadersVisualStyles = false;
-            this.DataGridView1.Location = new System.Drawing.Point(50, 196);
+            this.DataGridView1.Location = new System.Drawing.Point(50, 199);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.ReadOnly = true;
             this.DataGridView1.RowHeadersVisible = false;
@@ -169,8 +174,8 @@
             this.DataGridView1.RowTemplate.Height = 28;
             this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView1.Size = new System.Drawing.Size(700, 259);
-            this.DataGridView1.TabIndex = 5;
-            this.DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
+            this.DataGridView1.TabIndex = 6;
+            this.DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // DgvSr
             // 
@@ -197,19 +202,40 @@
             this.Dgvname.Name = "Dgvname";
             this.Dgvname.ReadOnly = true;
             // 
-            // DgvPhone
+            // DgvcatID
             // 
-            this.DgvPhone.HeaderText = "Phone";
-            this.DgvPhone.MinimumWidth = 8;
-            this.DgvPhone.Name = "DgvPhone";
-            this.DgvPhone.ReadOnly = true;
+            this.DgvcatID.HeaderText = "CatID";
+            this.DgvcatID.MinimumWidth = 8;
+            this.DgvcatID.Name = "DgvcatID";
+            this.DgvcatID.ReadOnly = true;
             // 
-            // DgvEmail
+            // DgvCategory
             // 
-            this.DgvEmail.HeaderText = "Email";
-            this.DgvEmail.MinimumWidth = 8;
-            this.DgvEmail.Name = "DgvEmail";
-            this.DgvEmail.ReadOnly = true;
+            this.DgvCategory.HeaderText = "Category";
+            this.DgvCategory.MinimumWidth = 8;
+            this.DgvCategory.Name = "DgvCategory";
+            this.DgvCategory.ReadOnly = true;
+            // 
+            // DgvBarcode
+            // 
+            this.DgvBarcode.HeaderText = "Barcode";
+            this.DgvBarcode.MinimumWidth = 8;
+            this.DgvBarcode.Name = "DgvBarcode";
+            this.DgvBarcode.ReadOnly = true;
+            // 
+            // DgvCost
+            // 
+            this.DgvCost.HeaderText = "Cost";
+            this.DgvCost.MinimumWidth = 8;
+            this.DgvCost.Name = "DgvCost";
+            this.DgvCost.ReadOnly = true;
+            // 
+            // DgvSale
+            // 
+            this.DgvSale.HeaderText = "Sale Price";
+            this.DgvSale.MinimumWidth = 8;
+            this.DgvSale.Name = "DgvSale";
+            this.DgvSale.ReadOnly = true;
             // 
             // DgvEdit
             // 
@@ -233,7 +259,7 @@
             this.DgvDel.ReadOnly = true;
             this.DgvDel.Width = 50;
             // 
-            // FrmSupplierView
+            // FrmProductView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -244,10 +270,10 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmSupplierView";
+            this.Name = "FrmProductView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmSupplierView";
-            this.Load += new System.EventHandler(this.FrmSupplierView_Load);
+            this.Text = "FrmProductView";
+            this.Load += new System.EventHandler(this.FrmProductView_Load);
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
@@ -268,8 +294,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DgvSr;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dgvid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dgvname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DgvPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DgvEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvcatID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvBarcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvSale;
         private System.Windows.Forms.DataGridViewImageColumn DgvEdit;
         private System.Windows.Forms.DataGridViewImageColumn DgvDel;
     }
