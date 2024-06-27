@@ -12,37 +12,34 @@ using System.Windows.Forms;
 
 namespace POS_System.View
 {
-    public partial class FrmProductView : Form
+    public partial class FrmPurchaseView : Form
     {
         private bool isCleared;
 
-        public FrmProductView()
+        public FrmPurchaseView()
         {
             InitializeComponent();
         }
 
-        private void FrmProductView_Load(object sender, EventArgs e)
+        private void FrmPurchaseView_Load(object sender, EventArgs e)
         {
-            LoadData();
+
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            MainClass.BlurBackground(new FrmProductAdd());
+            MainClass.BlurBackground(new FrmPurchaseAdd());
             LoadData(); // Refresh data after adding a new user
         }
 
         private void LoadData()
         {
             ListBox lb = new ListBox();
-            lb.Items.Add(Dgvid);       // proID
-            lb.Items.Add(Dgvname);     // pName
-            lb.Items.Add(DgvcatID);    // pCatID
-            lb.Items.Add(DgvCategory); // catName - Adding this for category name
-            lb.Items.Add(DgvBarcode);  // pBarcode
-            lb.Items.Add(DgvCost);     // pCost
-            lb.Items.Add(DgvSale);     // pPrice
-              
+            lb.Items.Add(Dgvid);
+            lb.Items.Add(DgvDate);
+            lb.Items.Add(DgvSupID);
+            lb.Items.Add(DgvSupplier);
+            lb.Items.Add(DgvAmount);
 
             try
             {
@@ -50,13 +47,13 @@ namespace POS_System.View
 
                 if (TxtSearch.Text == "      Search Here")
                 {
-                    qry = "SELECT proID, pName, pCatID, catName, pBarcode, pCost, pPrice FROM Product INNER JOIN Category ON catID = pCatID";
+                    qry = "SELECT userID, uName, uUsername, uPass, uPhone FROM users";
                 }
                 else
                 {
-                    qry = @"SELECT proID, pName, pCatID, catName, pBarcode, pCost, pPrice 
-                    FROM Product INNER JOIN Category ON catID = pCatID
-                    WHERE pName LIKE '%" + TxtSearch.Text + "%' ORDER BY proID DESC";
+                    qry = @"SELECT userID, uName, uUsername, uPass, uPhone 
+                            FROM users 
+                            WHERE uName LIKE '%" + TxtSearch.Text + "%' ORDER BY userID DESC";
                 }
 
                 MainClass.LoadData(qry, DataGridView1, lb);
@@ -67,7 +64,6 @@ namespace POS_System.View
             }
         }
 
-
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Ensure the clicked cell is not a header cell
@@ -76,13 +72,12 @@ namespace POS_System.View
             // Update
             if (DataGridView1.Columns[e.ColumnIndex].Name == "DgvEdit")
             {
-                FrmProductAdd frm = new FrmProductAdd();
+                FrmPurchaseAdd frm = new FrmPurchaseAdd();
                 frm.id = Convert.ToInt32(DataGridView1.Rows[e.RowIndex].Cells["Dgvid"].Value);
-                frm.catID = Convert.ToInt32(DataGridView1.Rows[e.RowIndex].Cells["DgvcatID"].Value);
-                frm.TxtName.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["Dgvname"].Value);
-                frm.TxtBarcode.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["DgvBarcode"].Value);
-                frm.TxtCost.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["DgvCost"].Value);
-                frm.TxtPrice.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["DgvSale"].Value);
+                //frm.TxtName.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["Dgvname"].Value);
+                //frm.TxtUser.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["DgvuserName"].Value);
+                //frm.TxtPass.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["Dgvpass"].Value);
+                //frm.TxtPhone.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["Dgvphone"].Value);
 
                 MainClass.BlurBackground(frm);
                 LoadData();
@@ -95,7 +90,7 @@ namespace POS_System.View
                 DialogResult dr = MessageBox.Show("Are you sure you want to delete this user?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    string qry = "DELETE FROM Product WHERE proID = @id";
+                    string qry = "DELETE FROM users WHERE userID = @id";
                     Hashtable ht = new Hashtable();
                     ht.Add("@id", id);
                     if (MainClass.SQL(qry, ht) > 0)
@@ -118,5 +113,4 @@ namespace POS_System.View
             LoadData();
         }
     }
-
 }

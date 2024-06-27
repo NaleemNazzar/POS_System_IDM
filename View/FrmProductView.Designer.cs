@@ -208,6 +208,7 @@
             this.DgvcatID.MinimumWidth = 8;
             this.DgvcatID.Name = "DgvcatID";
             this.DgvcatID.ReadOnly = true;
+            this.DgvcatID.Visible = false;
             // 
             // DgvCategory
             // 

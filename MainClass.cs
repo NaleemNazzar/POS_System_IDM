@@ -117,7 +117,7 @@ namespace POS_System
 
         public static void LoadData(string qry, DataGridView gv, ListBox lb)
         {
-            gv.CellFormatting += new DataGridViewCellFormattingEventHandler(Gv_CellFormatting);
+            gv.CellFormatting += new DataGridViewCellFormattingEventHandler(Gv_CellFormatting); // Add the event handler for cell formatting
 
             try
             {
@@ -154,11 +154,16 @@ namespace POS_System
             }
         }
 
-
         // Event handler for cell formatting
         private static void Gv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Implement cell formatting logic if needed
+            DataGridView gv = (DataGridView)sender;
+            int count = 0;
+            foreach (DataGridViewRow row in gv.Rows)
+            {
+                count++;
+                row.Cells[0].Value = count;
+            }
         }
 
         // Method for blurring the background

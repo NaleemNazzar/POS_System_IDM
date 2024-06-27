@@ -1,6 +1,6 @@
 ﻿namespace POS_System.View
 {
-    partial class FrmCategoryView
+    partial class FrmPurchaseView
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,10 @@
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
             this.DgvSr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dgvname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvSupID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvSupplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.DgvDel = new System.Windows.Forms.DataGridViewImageColumn();
             this.Panel1.SuspendLayout();
@@ -64,7 +67,7 @@
             // 
             this.PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.PictureBox1.Image = global::POS_System.Properties.Resources.Search;
-            this.PictureBox1.Location = new System.Drawing.Point(509, 98);
+            this.PictureBox1.Location = new System.Drawing.Point(506, 95);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(15, 15);
             this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -82,7 +85,6 @@
             this.TxtSearch.TabIndex = 3;
             this.TxtSearch.Text = "      Search Here";
             this.TxtSearch.Click += new System.EventHandler(this.TxtSearch_TextChanged);
-            this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
             // BtnAdd
             // 
@@ -117,9 +119,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label1.Location = new System.Drawing.Point(50, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 38);
+            this.label1.Size = new System.Drawing.Size(178, 38);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Category List";
+            this.label1.Text = "Purchase List";
             // 
             // DataGridView1
             // 
@@ -145,7 +147,10 @@
             this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DgvSr,
             this.Dgvid,
-            this.Dgvname,
+            this.DgvDate,
+            this.DgvSupID,
+            this.DgvSupplier,
+            this.DgvAmount,
             this.DgvEdit,
             this.DgvDel});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -157,7 +162,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridView1.EnableHeadersVisualStyles = false;
-            this.DataGridView1.Location = new System.Drawing.Point(50, 194);
+            this.DataGridView1.Location = new System.Drawing.Point(50, 193);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.ReadOnly = true;
             this.DataGridView1.RowHeadersVisible = false;
@@ -186,12 +191,34 @@
             this.Dgvid.ReadOnly = true;
             this.Dgvid.Visible = false;
             // 
-            // Dgvname
+            // DgvDate
             // 
-            this.Dgvname.HeaderText = "Name";
-            this.Dgvname.MinimumWidth = 8;
-            this.Dgvname.Name = "Dgvname";
-            this.Dgvname.ReadOnly = true;
+            this.DgvDate.HeaderText = "Date";
+            this.DgvDate.MinimumWidth = 100;
+            this.DgvDate.Name = "DgvDate";
+            this.DgvDate.ReadOnly = true;
+            // 
+            // DgvSupID
+            // 
+            this.DgvSupID.HeaderText = "supID";
+            this.DgvSupID.MinimumWidth = 8;
+            this.DgvSupID.Name = "DgvSupID";
+            this.DgvSupID.ReadOnly = true;
+            this.DgvSupID.Visible = false;
+            // 
+            // DgvSupplier
+            // 
+            this.DgvSupplier.HeaderText = "Supplier";
+            this.DgvSupplier.MinimumWidth = 8;
+            this.DgvSupplier.Name = "DgvSupplier";
+            this.DgvSupplier.ReadOnly = true;
+            // 
+            // DgvAmount
+            // 
+            this.DgvAmount.HeaderText = "Amount";
+            this.DgvAmount.MinimumWidth = 100;
+            this.DgvAmount.Name = "DgvAmount";
+            this.DgvAmount.ReadOnly = true;
             // 
             // DgvEdit
             // 
@@ -215,7 +242,7 @@
             this.DgvDel.ReadOnly = true;
             this.DgvDel.Width = 50;
             // 
-            // FrmCategoryView
+            // FrmPurchaseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -226,10 +253,10 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmCategoryView";
+            this.Name = "FrmPurchaseView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCategoryView";
-            this.Load += new System.EventHandler(this.FrmCategoryView_Load);
+            this.Text = "FrmPurchaseView";
+            this.Load += new System.EventHandler(this.FrmPurchaseView_Load);
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
@@ -241,6 +268,7 @@
         #endregion
 
         public System.Windows.Forms.Panel Panel1;
+        public System.Windows.Forms.PictureBox PictureBox1;
         public System.Windows.Forms.TextBox TxtSearch;
         public System.Windows.Forms.Button BtnAdd;
         public System.Windows.Forms.Label label2;
@@ -248,9 +276,11 @@
         private System.Windows.Forms.DataGridView DataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DgvSr;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dgvid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dgvname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvSupID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvSupplier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvAmount;
         private System.Windows.Forms.DataGridViewImageColumn DgvEdit;
         private System.Windows.Forms.DataGridViewImageColumn DgvDel;
-        private System.Windows.Forms.PictureBox PictureBox1;
     }
 }

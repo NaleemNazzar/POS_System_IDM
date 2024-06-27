@@ -229,6 +229,7 @@
             this.BtnPurchase.Text = "   Purchase";
             this.BtnPurchase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnPurchase.UseVisualStyleBackColor = false;
+            this.BtnPurchase.Click += new System.EventHandler(this.BtnPurchase_Click);
             // 
             // BtnProduct
             // 
