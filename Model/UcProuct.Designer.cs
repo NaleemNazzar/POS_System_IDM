@@ -46,7 +46,7 @@
             this.panel1.Controls.Add(this.LblPName);
             this.panel1.Location = new System.Drawing.Point(12, 47);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(168, 143);
+            this.panel1.Size = new System.Drawing.Size(106, 143);
             this.panel1.TabIndex = 0;
             // 
             // LblPrice
@@ -54,17 +54,17 @@
             this.LblPrice.Font = new System.Drawing.Font("Arial Narrow", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPrice.Location = new System.Drawing.Point(-1, 103);
             this.LblPrice.Name = "LblPrice";
-            this.LblPrice.Size = new System.Drawing.Size(168, 35);
+            this.LblPrice.Size = new System.Drawing.Size(99, 35);
             this.LblPrice.TabIndex = 1;
             this.LblPrice.Text = "200";
             this.LblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblPName
             // 
-            this.LblPName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPName.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPName.Location = new System.Drawing.Point(1, 55);
             this.LblPName.Name = "LblPName";
-            this.LblPName.Size = new System.Drawing.Size(166, 48);
+            this.LblPName.Size = new System.Drawing.Size(97, 48);
             this.LblPName.TabIndex = 0;
             this.LblPName.Text = "Product Name";
             this.LblPName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -72,7 +72,7 @@
             // TxtPic
             // 
             this.TxtPic.Image = global::POS_System.Properties.Resources.product_64;
-            this.TxtPic.Location = new System.Drawing.Point(51, 15);
+            this.TxtPic.Location = new System.Drawing.Point(21, 4);
             this.TxtPic.Name = "TxtPic";
             this.TxtPic.Size = new System.Drawing.Size(90, 90);
             this.TxtPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -87,7 +87,7 @@
             this.Controls.Add(this.TxtPic);
             this.Controls.Add(this.panel1);
             this.Name = "UcProuct";
-            this.Size = new System.Drawing.Size(195, 199);
+            this.Size = new System.Drawing.Size(133, 199);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TxtPic)).EndInit();
             this.ResumeLayout(false);
