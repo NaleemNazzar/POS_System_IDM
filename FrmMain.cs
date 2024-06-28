@@ -100,5 +100,10 @@ namespace POS_System
         {
             AddControls(new FrmPurchaseView());
         }
+
+        private void BtnSales_Click(object sender, EventArgs e)
+        {
+            AddControls(new FrmSaleView());
+        }
     }
 }

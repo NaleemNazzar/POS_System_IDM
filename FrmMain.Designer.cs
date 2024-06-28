@@ -190,6 +190,7 @@
             this.BtnSales.Text = "   Sales";
             this.BtnSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnSales.UseVisualStyleBackColor = false;
+            this.BtnSales.Click += new System.EventHandler(this.BtnSales_Click);
             // 
             // BtnCustomers
             // 
