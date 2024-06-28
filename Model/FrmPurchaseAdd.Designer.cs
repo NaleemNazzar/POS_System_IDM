@@ -122,6 +122,7 @@
             this.BtnSave.TabIndex = 0;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = false;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // CbSupplier
             // 
@@ -130,6 +131,7 @@
             this.CbSupplier.Name = "CbSupplier";
             this.CbSupplier.Size = new System.Drawing.Size(250, 36);
             this.CbSupplier.TabIndex = 1;
+            this.CbSupplier.Tag = "v";
             // 
             // label3
             // 
@@ -148,7 +150,7 @@
             this.TxtBarcode.Name = "TxtBarcode";
             this.TxtBarcode.Size = new System.Drawing.Size(250, 33);
             this.TxtBarcode.TabIndex = 2;
-            this.TxtBarcode.Tag = "v";
+            this.TxtBarcode.Tag = "";
             this.TxtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBarcode_KeyDown);
             // 
             // label2
@@ -214,7 +216,7 @@
             this.TxtQty.Name = "TxtQty";
             this.TxtQty.Size = new System.Drawing.Size(78, 33);
             this.TxtQty.TabIndex = 4;
-            this.TxtQty.Tag = "v";
+            this.TxtQty.Tag = "";
             this.TxtQty.TextChanged += new System.EventHandler(this.TxtQty_TextChanged);
             // 
             // label7
@@ -234,7 +236,7 @@
             this.TxtCost.Name = "TxtCost";
             this.TxtCost.Size = new System.Drawing.Size(78, 33);
             this.TxtCost.TabIndex = 5;
-            this.TxtCost.Tag = "v";
+            this.TxtCost.Tag = "";
             // 
             // label8
             // 
@@ -253,7 +255,7 @@
             this.TxtAmount.Name = "TxtAmount";
             this.TxtAmount.Size = new System.Drawing.Size(78, 33);
             this.TxtAmount.TabIndex = 6;
-            this.TxtAmount.Tag = "v";
+            this.TxtAmount.Tag = "";
             // 
             // BtnAdd
             // 

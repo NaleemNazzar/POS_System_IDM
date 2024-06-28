@@ -23,7 +23,7 @@ namespace POS_System.View
 
         private void FrmPurchaseView_Load(object sender, EventArgs e)
         {
-
+            LoadData();
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -47,13 +47,15 @@ namespace POS_System.View
 
                 if (TxtSearch.Text == "      Search Here")
                 {
-                    qry = "SELECT userID, uName, uUsername, uPass, uPhone FROM users";
+                    qry = "Select dMainID, mdate , m.mSupCusID,s.supName, SUM(d.amount) from tblMain m inner join tblDetails d on d.dMainID = m.MainID inner join Supplier s on s.supID = m.mSupCusID where m.mType = 'PUR' group by dMainID , mdate , m.mSupCusID,s.supName";
                 }
                 else
                 {
-                    qry = @"SELECT userID, uName, uUsername, uPass, uPhone 
-                            FROM users 
-                            WHERE uName LIKE '%" + TxtSearch.Text + "%' ORDER BY userID DESC";
+                    qry = @"Select dMainID, mdate , m.mSupCusID,s.supName, SUM(d.amount) from tblMain m 
+                            inner join tblDetails d on d.dMainID = m.MainID
+                            inner join Supplier s on s.supID = m.mSupCusID
+                            where m.mType = 'PUR'and supName LIKE '%" + TxtSearch.Text + "%'"+
+                            "group by dMainID , mdate , m.mSupCusID,s.supName";
                 }
 
                 MainClass.LoadData(qry, DataGridView1, lb);
@@ -73,12 +75,9 @@ namespace POS_System.View
             if (DataGridView1.Columns[e.ColumnIndex].Name == "DgvEdit")
             {
                 FrmPurchaseAdd frm = new FrmPurchaseAdd();
-                frm.id = Convert.ToInt32(DataGridView1.Rows[e.RowIndex].Cells["Dgvid"].Value);
-                //frm.TxtName.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["Dgvname"].Value);
-                //frm.TxtUser.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["DgvuserName"].Value);
-                //frm.TxtPass.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["Dgvpass"].Value);
-                //frm.TxtPhone.Text = Convert.ToString(DataGridView1.Rows[e.RowIndex].Cells["Dgvphone"].Value);
-
+                frm.mainID = Convert.ToInt32(DataGridView1.Rows[e.RowIndex].Cells["Dgvid"].Value);
+                frm.supID = Convert.ToInt32(DataGridView1.Rows[e.RowIndex].Cells["DgvSupID"].Value);
+                
                 MainClass.BlurBackground(frm);
                 LoadData();
             }
@@ -90,10 +89,13 @@ namespace POS_System.View
                 DialogResult dr = MessageBox.Show("Are you sure you want to delete this user?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    string qry = "DELETE FROM users WHERE userID = @id";
+                    string qry = "DELETE FROM tblMain WHERE MainID = " + id + "";
+                    string qry2 = "DELETE FROM tblDetails WHERE dMainID = " + id + "";
+
                     Hashtable ht = new Hashtable();
-                    ht.Add("@id", id);
-                    if (MainClass.SQL(qry, ht) > 0)
+                    //ht.Add("@id", id);
+                    MainClass.SQL(qry, ht);
+                    if (MainClass.SQL(qry2, ht) > 0)
                     {
                         MessageBox.Show("Deleted Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadData();

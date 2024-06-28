@@ -208,33 +208,61 @@ namespace POS_System
         // Method for validation
         public static bool Validation(Form F)
         {
-            bool isValid = true;
+            bool isValid = false;
             int count = 0;
 
-            // Iterate through each control in the form
             foreach (Control c in F.Controls)
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(c.Tag)))
+                //using tag for the control to check if we want to validate it or not
+                if (Convert.ToString(c.Tag) != "" && Convert.ToString(c.Tag) != null)
                 {
-                    if (c is TextBox t)
+                    //for text box
+                    if (c is TextBox)
                     {
-                        // Check if the TextBox is empty
-                        if (string.IsNullOrWhiteSpace(t.Text))
+                        TextBox t = (TextBox)c;
+                        if (t.Text.Trim() == "")
                         {
-                            t.BackColor = Color.Red; // Indicate invalid input with red background
+                            t.BackColor = Color.Red;
+                            t.ForeColor = Color.Red;
                             count++;
                         }
                         else
                         {
-                            t.BackColor = SystemColors.Window; // Reset to default color if valid
+                            t.BackColor = Color.FromArgb(213, 218, 223);
+                            t.ForeColor = Color.Black;
+                        }
+                    }
+                    //for Combo box
+                    if (c is ComboBox)
+                    {
+                        ComboBox t = (ComboBox)c;
+                        if (t.Text.Trim() == "")
+                        {
+                            t.BackColor = Color.Red;
+                            t.ForeColor = Color.Red;
+                            count++;
+                        }
+                        else
+                        {
+                            t.BackColor = Color.FromArgb(213, 218, 223);
+                            t.ForeColor = Color.Black;
                         }
                     }
                 }
+
+                if (count == 0)
+                {
+                    isValid = true;
+                }
+                else
+                {
+                    isValid = false;
+                }
             }
 
-            isValid = count == 0; // Set isValid to true if no invalid controls were found
             return isValid;
         }
+
 
         internal static void LoadData(string qry, DataGridView dataGridView1, Hashtable ht)
         {
