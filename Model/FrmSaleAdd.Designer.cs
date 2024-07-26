@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CbCustomer = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtBarcode = new System.Windows.Forms.TextBox();
@@ -49,7 +49,6 @@
             this.DgvCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DgvDel = new System.Windows.Forms.DataGridViewImageColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
@@ -58,22 +57,22 @@
             this.BtnSave = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // CbCustomer
             // 
             this.CbCustomer.FormattingEnabled = true;
-            this.CbCustomer.Location = new System.Drawing.Point(227, 70);
+            this.CbCustomer.Location = new System.Drawing.Point(291, 77);
             this.CbCustomer.Name = "CbCustomer";
-            this.CbCustomer.Size = new System.Drawing.Size(179, 36);
+            this.CbCustomer.Size = new System.Drawing.Size(225, 36);
             this.CbCustomer.TabIndex = 1;
+            this.CbCustomer.Tag = "v";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(222, 39);
+            this.label3.Location = new System.Drawing.Point(286, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 28);
             this.label3.TabIndex = 34;
@@ -83,17 +82,18 @@
             // 
             this.TxtBarcode.BackColor = System.Drawing.SystemColors.Window;
             this.TxtBarcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtBarcode.Location = new System.Drawing.Point(426, 74);
+            this.TxtBarcode.Location = new System.Drawing.Point(537, 80);
             this.TxtBarcode.Name = "TxtBarcode";
-            this.TxtBarcode.Size = new System.Drawing.Size(176, 33);
+            this.TxtBarcode.Size = new System.Drawing.Size(225, 33);
             this.TxtBarcode.TabIndex = 2;
-            this.TxtBarcode.Tag = "v";
+            this.TxtBarcode.Tag = "";
+            //this.TxtBarcode.TextChanged += new System.EventHandler(this.TxtBarcode_TextChanged);
             this.TxtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBarcode_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(421, 43);
+            this.label2.Location = new System.Drawing.Point(532, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 28);
             this.label2.TabIndex = 33;
@@ -103,15 +103,15 @@
             // 
             this.TxtDate.Checked = false;
             this.TxtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.TxtDate.Location = new System.Drawing.Point(32, 73);
+            this.TxtDate.Location = new System.Drawing.Point(27, 79);
             this.TxtDate.Name = "TxtDate";
-            this.TxtDate.Size = new System.Drawing.Size(159, 33);
+            this.TxtDate.Size = new System.Drawing.Size(225, 33);
             this.TxtDate.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 39);
+            this.label4.Location = new System.Drawing.Point(22, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 28);
             this.label4.TabIndex = 37;
@@ -123,9 +123,9 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
             this.panel1.Controls.Add(this.LblTotal);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(834, 66);
+            this.panel1.Location = new System.Drawing.Point(781, 64);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(462, 55);
+            this.panel1.Size = new System.Drawing.Size(500, 55);
             this.panel1.TabIndex = 6;
             // 
             // LblTotal
@@ -161,14 +161,14 @@
             this.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(65)))), ((int)(((byte)(205)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(65)))), ((int)(((byte)(205)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridView1.ColumnHeadersHeight = 35;
             this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Dgvid,
@@ -179,24 +179,25 @@
             this.DgvAmount,
             this.DgvCost,
             this.DgvDel});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridView1.EnableHeadersVisualStyles = false;
-            this.DataGridView1.Location = new System.Drawing.Point(834, 137);
+            this.DataGridView1.Location = new System.Drawing.Point(781, 135);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.ReadOnly = true;
             this.DataGridView1.RowHeadersVisible = false;
             this.DataGridView1.RowHeadersWidth = 62;
             this.DataGridView1.RowTemplate.Height = 28;
             this.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridView1.Size = new System.Drawing.Size(462, 437);
+            this.DataGridView1.Size = new System.Drawing.Size(500, 451);
             this.DataGridView1.TabIndex = 5;
+            this.DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // Dgvid
             // 
@@ -278,39 +279,27 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(32, 186);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(22, 202);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(783, 388);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 386);
             this.flowLayoutPanel1.TabIndex = 4;
-            // 
-            // PictureBox1
-            // 
-            this.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBox1.Image = global::POS_System.Properties.Resources.Search;
-            this.PictureBox1.Location = new System.Drawing.Point(51, 162);
-            this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Size = new System.Drawing.Size(15, 15);
-            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox1.TabIndex = 43;
-            this.PictureBox1.TabStop = false;
             // 
             // TxtSearch
             // 
             this.TxtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtSearch.BackColor = System.Drawing.SystemColors.Window;
             this.TxtSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.TxtSearch.Location = new System.Drawing.Point(38, 144);
+            this.TxtSearch.Location = new System.Drawing.Point(22, 147);
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(250, 33);
             this.TxtSearch.TabIndex = 3;
-            this.TxtSearch.Text = "      Search Here";
+            this.TxtSearch.Tag = "";
             this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 113);
+            this.label1.Location = new System.Drawing.Point(22, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 28);
             this.label1.TabIndex = 33;
@@ -350,9 +339,9 @@
             this.BtnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnClear.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClear.ForeColor = System.Drawing.Color.White;
-            this.BtnClear.Location = new System.Drawing.Point(726, 69);
+            this.BtnClear.Location = new System.Drawing.Point(562, 135);
             this.BtnClear.Name = "BtnClear";
-            this.BtnClear.Size = new System.Drawing.Size(89, 45);
+            this.BtnClear.Size = new System.Drawing.Size(200, 45);
             this.BtnClear.TabIndex = 45;
             this.BtnClear.Text = "Clear";
             this.BtnClear.UseVisualStyleBackColor = false;
@@ -364,12 +353,13 @@
             this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSave.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSave.ForeColor = System.Drawing.Color.White;
-            this.BtnSave.Location = new System.Drawing.Point(619, 67);
+            this.BtnSave.Location = new System.Drawing.Point(344, 135);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(101, 45);
+            this.BtnSave.Size = new System.Drawing.Size(200, 45);
             this.BtnSave.TabIndex = 46;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = false;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // FrmSaleAdd
             // 
@@ -380,7 +370,6 @@
             this.Controls.Add(this.BtnClear);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.toolStrip);
-            this.Controls.Add(this.PictureBox1);
             this.Controls.Add(this.TxtSearch);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.DataGridView1);
@@ -403,7 +392,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -430,7 +418,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DgvCost;
         private System.Windows.Forms.DataGridViewImageColumn DgvDel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        public System.Windows.Forms.PictureBox PictureBox1;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.Label label5;

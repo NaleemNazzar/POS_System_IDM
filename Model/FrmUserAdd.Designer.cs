@@ -34,7 +34,6 @@
             this.BtnClose = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnBrowse = new System.Windows.Forms.Button();
-            this.TxtPic = new System.Windows.Forms.PictureBox();
             this.TxtPhone = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtUser = new System.Windows.Forms.TextBox();
@@ -43,6 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.TxtPic = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtPic)).BeginInit();
@@ -121,16 +121,6 @@
             this.BtnBrowse.UseVisualStyleBackColor = false;
             this.BtnBrowse.Click += new System.EventHandler(this.BtnBrowse_Click);
             // 
-            // TxtPic
-            // 
-            this.TxtPic.Image = global::POS_System.Properties.Resources.icons8_person_48;
-            this.TxtPic.Location = new System.Drawing.Point(634, 160);
-            this.TxtPic.Name = "TxtPic";
-            this.TxtPic.Size = new System.Drawing.Size(130, 122);
-            this.TxtPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.TxtPic.TabIndex = 15;
-            this.TxtPic.TabStop = false;
-            // 
             // TxtPhone
             // 
             this.TxtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -165,6 +155,7 @@
             this.TxtPass.Size = new System.Drawing.Size(250, 33);
             this.TxtPass.TabIndex = 9;
             this.TxtPass.Tag = "v";
+            this.TxtPass.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -186,7 +177,7 @@
             // 
             // TxtName
             // 
-            this.TxtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
+            this.TxtName.BackColor = System.Drawing.Color.White;
             this.TxtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TxtName.Location = new System.Drawing.Point(41, 195);
             this.TxtName.Name = "TxtName";
@@ -203,11 +194,21 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Name";
             // 
+            // TxtPic
+            // 
+            this.TxtPic.Image = global::POS_System.Properties.Resources.icons8_user;
+            this.TxtPic.Location = new System.Drawing.Point(634, 160);
+            this.TxtPic.Name = "TxtPic";
+            this.TxtPic.Size = new System.Drawing.Size(130, 122);
+            this.TxtPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.TxtPic.TabIndex = 15;
+            this.TxtPic.TabStop = false;
+            // 
             // FrmUserAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.BtnBrowse);
             this.Controls.Add(this.TxtPic);

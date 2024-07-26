@@ -36,18 +36,11 @@
             this.BtnClose = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.CbSupplier = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.TxtBarcode = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.TxtDate = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
             this.CbProduct = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.TxtQty = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.TxtCost = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.TxtAmount = new System.Windows.Forms.TextBox();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
@@ -58,6 +51,13 @@
             this.DgvQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DgvCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
@@ -79,11 +79,14 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(30, 30);
+            this.label1.Image = global::POS_System.Properties.Resources.Purchase;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(51, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 38);
+            this.label1.Size = new System.Drawing.Size(261, 38);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Purchase Details";
+            this.label1.Text = "     Purchase Details";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -127,133 +130,68 @@
             // CbSupplier
             // 
             this.CbSupplier.FormattingEnabled = true;
-            this.CbSupplier.Location = new System.Drawing.Point(334, 151);
+            this.CbSupplier.Location = new System.Drawing.Point(368, 152);
             this.CbSupplier.Name = "CbSupplier";
-            this.CbSupplier.Size = new System.Drawing.Size(250, 36);
+            this.CbSupplier.Size = new System.Drawing.Size(300, 36);
             this.CbSupplier.TabIndex = 1;
             this.CbSupplier.Tag = "v";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(329, 120);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 28);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Supplier";
-            // 
             // TxtBarcode
             // 
-            this.TxtBarcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
+            this.TxtBarcode.BackColor = System.Drawing.Color.White;
             this.TxtBarcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtBarcode.Location = new System.Drawing.Point(52, 252);
+            this.TxtBarcode.Location = new System.Drawing.Point(684, 155);
             this.TxtBarcode.Name = "TxtBarcode";
-            this.TxtBarcode.Size = new System.Drawing.Size(250, 33);
+            this.TxtBarcode.Size = new System.Drawing.Size(300, 33);
             this.TxtBarcode.TabIndex = 2;
             this.TxtBarcode.Tag = "";
-            this.TxtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBarcode_KeyDown);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 221);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 28);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Barcode";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 28);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "Date";
             // 
             // TxtDate
             // 
             this.TxtDate.Checked = false;
             this.TxtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.TxtDate.Location = new System.Drawing.Point(51, 154);
+            this.TxtDate.Location = new System.Drawing.Point(52, 155);
             this.TxtDate.Name = "TxtDate";
-            this.TxtDate.Size = new System.Drawing.Size(249, 33);
+            this.TxtDate.Size = new System.Drawing.Size(300, 33);
             this.TxtDate.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(330, 218);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 28);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "Product";
             // 
             // CbProduct
             // 
             this.CbProduct.FormattingEnabled = true;
-            this.CbProduct.Location = new System.Drawing.Point(335, 249);
+            this.CbProduct.Location = new System.Drawing.Point(58, 249);
             this.CbProduct.Name = "CbProduct";
-            this.CbProduct.Size = new System.Drawing.Size(250, 36);
+            this.CbProduct.Size = new System.Drawing.Size(300, 36);
             this.CbProduct.TabIndex = 3;
             this.CbProduct.SelectedIndexChanged += new System.EventHandler(this.CbProduct_SelectedIndexChanged);
-            this.CbProduct.Click += new System.EventHandler(this.CbProduct_SelectedIndexChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(586, 221);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 28);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Qty";
             // 
             // TxtQty
             // 
-            this.TxtQty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
+            this.TxtQty.BackColor = System.Drawing.Color.White;
             this.TxtQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtQty.Location = new System.Drawing.Point(591, 252);
+            this.TxtQty.Location = new System.Drawing.Point(368, 249);
             this.TxtQty.Name = "TxtQty";
-            this.TxtQty.Size = new System.Drawing.Size(78, 33);
+            this.TxtQty.Size = new System.Drawing.Size(150, 33);
             this.TxtQty.TabIndex = 4;
             this.TxtQty.Tag = "";
             this.TxtQty.TextChanged += new System.EventHandler(this.TxtQty_TextChanged);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(683, 221);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 28);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Cost";
-            // 
             // TxtCost
             // 
-            this.TxtCost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
+            this.TxtCost.BackColor = System.Drawing.Color.White;
             this.TxtCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtCost.Location = new System.Drawing.Point(688, 252);
+            this.TxtCost.Location = new System.Drawing.Point(538, 249);
             this.TxtCost.Name = "TxtCost";
-            this.TxtCost.Size = new System.Drawing.Size(78, 33);
+            this.TxtCost.Size = new System.Drawing.Size(150, 33);
             this.TxtCost.TabIndex = 5;
             this.TxtCost.Tag = "";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(778, 221);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 28);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "Amount";
-            // 
             // TxtAmount
             // 
-            this.TxtAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
+            this.TxtAmount.BackColor = System.Drawing.Color.White;
             this.TxtAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtAmount.Location = new System.Drawing.Point(783, 252);
+            this.TxtAmount.Location = new System.Drawing.Point(706, 249);
             this.TxtAmount.Name = "TxtAmount";
-            this.TxtAmount.Size = new System.Drawing.Size(78, 33);
+            this.TxtAmount.Size = new System.Drawing.Size(150, 33);
             this.TxtAmount.TabIndex = 6;
             this.TxtAmount.Tag = "";
             // 
@@ -261,9 +199,9 @@
             // 
             this.BtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
             this.BtnAdd.ForeColor = System.Drawing.Color.White;
-            this.BtnAdd.Location = new System.Drawing.Point(878, 249);
+            this.BtnAdd.Location = new System.Drawing.Point(878, 215);
             this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(106, 36);
+            this.BtnAdd.Size = new System.Drawing.Size(106, 67);
             this.BtnAdd.TabIndex = 7;
             this.BtnAdd.Text = "Add";
             this.BtnAdd.UseVisualStyleBackColor = false;
@@ -371,6 +309,89 @@
             this.DgvAmount.MinimumWidth = 100;
             this.DgvAmount.Name = "DgvAmount";
             this.DgvAmount.ReadOnly = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Image = global::POS_System.Properties.Resources.pProduct;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(53, 218);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 28);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "     Product";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Image = global::POS_System.Properties.Resources.sSupplier;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(363, 121);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 28);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "     Supplier";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Image = global::POS_System.Properties.Resources.icons8_estimate_16;
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.Location = new System.Drawing.Point(701, 215);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(108, 28);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "     Amount";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Image = global::POS_System.Properties.Resources.Cost_16;
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.Location = new System.Drawing.Point(533, 215);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 28);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "     Cost";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Image = global::POS_System.Properties.Resources.icons8_quantity_16;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(363, 215);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 28);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "     Qty";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Image = global::POS_System.Properties.Resources.icons8_date_16;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Location = new System.Drawing.Point(53, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 28);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "     Date";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Image = global::POS_System.Properties.Resources.Barcode_16;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(679, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 28);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "     Barcode";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmPurchaseAdd
             // 

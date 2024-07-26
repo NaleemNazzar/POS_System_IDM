@@ -35,6 +35,7 @@
             this.CenterPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnSupplier = new System.Windows.Forms.Button();
+            this.BtnReport = new System.Windows.Forms.Button();
             this.BtnUsers = new System.Windows.Forms.Button();
             this.BtnSales = new System.Windows.Forms.Button();
             this.BtnCustomers = new System.Windows.Forms.Button();
@@ -106,16 +107,17 @@
             this.CenterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CenterPanel.Location = new System.Drawing.Point(254, 31);
+            this.CenterPanel.Location = new System.Drawing.Point(304, 31);
             this.CenterPanel.Margin = new System.Windows.Forms.Padding(2);
             this.CenterPanel.Name = "CenterPanel";
-            this.CenterPanel.Size = new System.Drawing.Size(646, 558);
+            this.CenterPanel.Size = new System.Drawing.Size(596, 718);
             this.CenterPanel.TabIndex = 17;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
             this.panel2.Controls.Add(this.BtnSupplier);
+            this.panel2.Controls.Add(this.BtnReport);
             this.panel2.Controls.Add(this.BtnUsers);
             this.panel2.Controls.Add(this.BtnSales);
             this.panel2.Controls.Add(this.BtnCustomers);
@@ -129,7 +131,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 29);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 571);
+            this.panel2.Size = new System.Drawing.Size(300, 731);
             this.panel2.TabIndex = 27;
             // 
             // BtnSupplier
@@ -138,19 +140,39 @@
             this.BtnSupplier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnSupplier.FlatAppearance.BorderSize = 0;
             this.BtnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSupplier.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.BtnSupplier.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.BtnSupplier.ForeColor = System.Drawing.Color.White;
-            this.BtnSupplier.Image = global::POS_System.Properties.Resources.Product;
+            this.BtnSupplier.Image = global::POS_System.Properties.Resources.supplier;
             this.BtnSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSupplier.Location = new System.Drawing.Point(50, 332);
+            this.BtnSupplier.Location = new System.Drawing.Point(50, 400);
             this.BtnSupplier.Margin = new System.Windows.Forms.Padding(2);
             this.BtnSupplier.Name = "BtnSupplier";
-            this.BtnSupplier.Size = new System.Drawing.Size(150, 40);
+            this.BtnSupplier.Size = new System.Drawing.Size(200, 45);
             this.BtnSupplier.TabIndex = 3;
             this.BtnSupplier.Text = "   Supplier";
             this.BtnSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnSupplier.UseVisualStyleBackColor = false;
             this.BtnSupplier.Click += new System.EventHandler(this.BtnSupplier_Click);
+            // 
+            // BtnReport
+            // 
+            this.BtnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
+            this.BtnReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnReport.FlatAppearance.BorderSize = 0;
+            this.BtnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnReport.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.BtnReport.ForeColor = System.Drawing.Color.White;
+            this.BtnReport.Image = global::POS_System.Properties.Resources.Reports;
+            this.BtnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnReport.Location = new System.Drawing.Point(50, 650);
+            this.BtnReport.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnReport.Name = "BtnReport";
+            this.BtnReport.Size = new System.Drawing.Size(200, 45);
+            this.BtnReport.TabIndex = 2;
+            this.BtnReport.Text = "   Report";
+            this.BtnReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnReport.UseVisualStyleBackColor = false;
+            this.BtnReport.Click += new System.EventHandler(this.BtnReport_Click);
             // 
             // BtnUsers
             // 
@@ -158,14 +180,14 @@
             this.BtnUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnUsers.FlatAppearance.BorderSize = 0;
             this.BtnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnUsers.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.BtnUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.BtnUsers.ForeColor = System.Drawing.Color.White;
-            this.BtnUsers.Image = global::POS_System.Properties.Resources.Categary1;
+            this.BtnUsers.Image = global::POS_System.Properties.Resources.Users;
             this.BtnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnUsers.Location = new System.Drawing.Point(50, 520);
+            this.BtnUsers.Location = new System.Drawing.Point(50, 600);
             this.BtnUsers.Margin = new System.Windows.Forms.Padding(2);
             this.BtnUsers.Name = "BtnUsers";
-            this.BtnUsers.Size = new System.Drawing.Size(150, 40);
+            this.BtnUsers.Size = new System.Drawing.Size(200, 45);
             this.BtnUsers.TabIndex = 2;
             this.BtnUsers.Text = "   Users";
             this.BtnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -178,14 +200,14 @@
             this.BtnSales.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnSales.FlatAppearance.BorderSize = 0;
             this.BtnSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSales.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.BtnSales.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.BtnSales.ForeColor = System.Drawing.Color.White;
             this.BtnSales.Image = global::POS_System.Properties.Resources.Sales;
             this.BtnSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSales.Location = new System.Drawing.Point(50, 470);
+            this.BtnSales.Location = new System.Drawing.Point(50, 550);
             this.BtnSales.Margin = new System.Windows.Forms.Padding(2);
             this.BtnSales.Name = "BtnSales";
-            this.BtnSales.Size = new System.Drawing.Size(150, 40);
+            this.BtnSales.Size = new System.Drawing.Size(200, 45);
             this.BtnSales.TabIndex = 2;
             this.BtnSales.Text = "   Sales";
             this.BtnSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -198,14 +220,14 @@
             this.BtnCustomers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnCustomers.FlatAppearance.BorderSize = 0;
             this.BtnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCustomers.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.BtnCustomers.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.BtnCustomers.ForeColor = System.Drawing.Color.White;
             this.BtnCustomers.Image = global::POS_System.Properties.Resources.Customers;
             this.BtnCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCustomers.Location = new System.Drawing.Point(50, 426);
+            this.BtnCustomers.Location = new System.Drawing.Point(50, 500);
             this.BtnCustomers.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCustomers.Name = "BtnCustomers";
-            this.BtnCustomers.Size = new System.Drawing.Size(181, 40);
+            this.BtnCustomers.Size = new System.Drawing.Size(200, 45);
             this.BtnCustomers.TabIndex = 2;
             this.BtnCustomers.Text = "   Customers";
             this.BtnCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -218,14 +240,14 @@
             this.BtnPurchase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnPurchase.FlatAppearance.BorderSize = 0;
             this.BtnPurchase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPurchase.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.BtnPurchase.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.BtnPurchase.ForeColor = System.Drawing.Color.White;
             this.BtnPurchase.Image = global::POS_System.Properties.Resources.Purchase;
             this.BtnPurchase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPurchase.Location = new System.Drawing.Point(50, 382);
+            this.BtnPurchase.Location = new System.Drawing.Point(50, 450);
             this.BtnPurchase.Margin = new System.Windows.Forms.Padding(2);
             this.BtnPurchase.Name = "BtnPurchase";
-            this.BtnPurchase.Size = new System.Drawing.Size(150, 40);
+            this.BtnPurchase.Size = new System.Drawing.Size(200, 45);
             this.BtnPurchase.TabIndex = 2;
             this.BtnPurchase.Text = "   Purchase";
             this.BtnPurchase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -238,14 +260,14 @@
             this.BtnProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnProduct.FlatAppearance.BorderSize = 0;
             this.BtnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnProduct.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.BtnProduct.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.BtnProduct.ForeColor = System.Drawing.Color.White;
             this.BtnProduct.Image = global::POS_System.Properties.Resources.Product;
             this.BtnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnProduct.Location = new System.Drawing.Point(50, 288);
+            this.BtnProduct.Location = new System.Drawing.Point(50, 350);
             this.BtnProduct.Margin = new System.Windows.Forms.Padding(2);
             this.BtnProduct.Name = "BtnProduct";
-            this.BtnProduct.Size = new System.Drawing.Size(150, 40);
+            this.BtnProduct.Size = new System.Drawing.Size(200, 45);
             this.BtnProduct.TabIndex = 2;
             this.BtnProduct.Text = "   Product";
             this.BtnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -258,14 +280,14 @@
             this.BtnCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnCategory.FlatAppearance.BorderSize = 0;
             this.BtnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.BtnCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.BtnCategory.ForeColor = System.Drawing.Color.White;
             this.BtnCategory.Image = global::POS_System.Properties.Resources.Categary;
             this.BtnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCategory.Location = new System.Drawing.Point(50, 244);
+            this.BtnCategory.Location = new System.Drawing.Point(50, 300);
             this.BtnCategory.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCategory.Name = "BtnCategory";
-            this.BtnCategory.Size = new System.Drawing.Size(198, 40);
+            this.BtnCategory.Size = new System.Drawing.Size(200, 45);
             this.BtnCategory.TabIndex = 2;
             this.BtnCategory.Text = "   Category";
             this.BtnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -278,28 +300,29 @@
             this.BtnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnHome.FlatAppearance.BorderSize = 0;
             this.BtnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnHome.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnHome.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHome.ForeColor = System.Drawing.Color.White;
             this.BtnHome.Image = global::POS_System.Properties.Resources.home;
             this.BtnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnHome.Location = new System.Drawing.Point(50, 200);
+            this.BtnHome.Location = new System.Drawing.Point(50, 250);
             this.BtnHome.Margin = new System.Windows.Forms.Padding(2);
             this.BtnHome.Name = "BtnHome";
-            this.BtnHome.Size = new System.Drawing.Size(150, 40);
+            this.BtnHome.Size = new System.Drawing.Size(200, 45);
             this.BtnHome.TabIndex = 2;
             this.BtnHome.Text = "   Home";
             this.BtnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnHome.UseVisualStyleBackColor = false;
+            this.BtnHome.Click += new System.EventHandler(this.BtnHome_Click);
             // 
             // LblUser
             // 
             this.LblUser.BackColor = System.Drawing.Color.Transparent;
             this.LblUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblUser.ForeColor = System.Drawing.Color.White;
-            this.LblUser.Location = new System.Drawing.Point(2, 125);
+            this.LblUser.Location = new System.Drawing.Point(0, 175);
             this.LblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblUser.Name = "LblUser";
-            this.LblUser.Size = new System.Drawing.Size(246, 32);
+            this.LblUser.Size = new System.Drawing.Size(298, 32);
             this.LblUser.TabIndex = 1;
             this.LblUser.Text = "Username";
             this.LblUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -307,20 +330,21 @@
             // PictureBox
             // 
             this.PictureBox.Image = global::POS_System.Properties.Resources.icons8_person_48;
-            this.PictureBox.Location = new System.Drawing.Point(78, 25);
+            this.PictureBox.Location = new System.Drawing.Point(92, 50);
             this.PictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(95, 95);
+            this.PictureBox.Size = new System.Drawing.Size(114, 114);
             this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBox.TabIndex = 0;
             this.PictureBox.TabStop = false;
+            this.PictureBox.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
-            this.ClientSize = new System.Drawing.Size(900, 600);
+            this.ClientSize = new System.Drawing.Size(900, 760);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.CenterPanel);
             this.Controls.Add(this.toolStrip);
@@ -332,6 +356,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMain";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
@@ -360,5 +386,6 @@
         private System.Windows.Forms.Label LblUser;
         private System.Windows.Forms.PictureBox PictureBox;
         private System.Windows.Forms.Button BtnSupplier;
+        private System.Windows.Forms.Button BtnReport;
     }
 }

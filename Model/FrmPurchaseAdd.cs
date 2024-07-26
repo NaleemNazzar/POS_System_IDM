@@ -21,20 +21,27 @@ namespace POS_System.Model
 
         public int mainID = 0;
         public int supID = 0;
-       
+
 
         private void CbProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CbProduct.SelectedIndex !=-1)
+            if (CbProduct.SelectedIndex != -1)
             {
                 TxtQty.Text = "";
                 GetDetails();
+
+                // Show barcode in TxtBarcode
+                string qry = "SELECT pBarcode FROM Product WHERE proID = " + Convert.ToInt32(CbProduct.SelectedValue);
+                SqlCommand cmd = new SqlCommand(qry, MainClass.con);
+                if (MainClass.con.State == ConnectionState.Closed) { MainClass.con.Open(); }
+                TxtBarcode.Text = cmd.ExecuteScalar().ToString();
             }
         }
+
         private void GetDetails()
         {
             string qry = "SELECT * FROM Product WHERE proID = " + Convert.ToInt32(CbProduct.SelectedValue) + "";
-            SqlCommand cmd = new SqlCommand(qry,MainClass.con);
+            SqlCommand cmd = new SqlCommand(qry, MainClass.con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -111,31 +118,69 @@ namespace POS_System.Model
         }
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            string pid;
-            string pname;
-            string qty;
-            string cost;
-            string amt;
+            string errorMessage = ValidateInput();
 
-            pname = CbProduct.Text;
-            pid = CbProduct.SelectedValue.ToString();
-            qty = TxtQty.Text;
-            cost = TxtCost.Text;
-            amt = TxtAmount.Text;
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                MessageBox.Show(errorMessage, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            //0 for Serial an id
+            string pid = CbProduct.SelectedValue.ToString();
+            string pname = CbProduct.Text;
+            string qty = TxtQty.Text;
+            string cost = TxtCost.Text;
+            string amt = TxtAmount.Text;
+
+            // Add to DataGridView
             DataGridView1.Rows.Add(0, 0, pid, pname, qty, cost, amt);
-            CbProduct.SelectedIndex = 0;
+
+            // Clear fields except Supplier
             CbProduct.SelectedIndex = -1;
             TxtQty.Text = "";
             TxtCost.Text = "";
             TxtAmount.Text = "";
-
+            TxtBarcode.Text = ""; // Clear barcode field
         }
+
+
+
+        private string ValidateInput()
+        {
+            StringBuilder errors = new StringBuilder();
+
+            if (CbSupplier.SelectedIndex == -1)
+            {
+                errors.AppendLine("Please select a Supplier.");
+            }
+
+            if (CbProduct.SelectedIndex == -1)
+            {
+                errors.AppendLine("Please select a Product.");
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtQty.Text))
+            {
+                errors.AppendLine("Please enter a Quantity.");
+            }
+            else
+            {
+                int quantity;
+                if (!int.TryParse(TxtQty.Text, out quantity) || quantity <= 0)
+                {
+                    errors.AppendLine("Quantity should be a valid positive number.");
+                }
+            }
+
+            return errors.ToString().Trim();
+        }
+
+
+
 
         private void DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-           
+
 
             int count = 0;
 
@@ -145,61 +190,95 @@ namespace POS_System.Model
                 row.Cells[0].Value = count;
             }
         }
+        private string ValidateSave()
+        {
+            StringBuilder errors = new StringBuilder();
+
+            // Validate Date
+            if (TxtDate.Value == null)
+            {
+                errors.AppendLine("Please select a Date.");
+            }
+
+            // Validate Supplier
+            if (CbSupplier.SelectedIndex == -1)
+            {
+                errors.AppendLine("Please select a Supplier.");
+            }
+
+            // Validate DataGridView has rows
+            if (DataGridView1.Rows.Count == 0)
+            {
+                errors.AppendLine("Please add at least one item to the purchase.");
+            }
+
+            // Additional validations as needed
+
+            return errors.ToString().Trim();
+        }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (MainClass.Validation(this) == false)
+            string errorMessage = ValidateSave();
+
+            if (!string.IsNullOrEmpty(errorMessage))
             {
-                MessageBox.Show("Please remove errors", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(errorMessage, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string qry1 = "";//for main table
-            string qry2 = "";//for details table
+
+            // Continue with save logic as before
+            string qry1 = ""; // Query for main table
+            string qry2 = ""; // Query for details table
             int record = 0;
 
-            if (mainID == 0) //insert
+            // Determine if it's an insert or update
+            if (mainID == 0) // Insert
             {
-                qry1 = @"INSERT INTO tblMain VALUES(@date,@type,@supID);
-                            SELECT SCOPE_IDENTITY()";
+                qry1 = @"INSERT INTO tblMain VALUES(@date, @type, @supID);
+                    SELECT SCOPE_IDENTITY()";
             }
-            else
+            else // Update
             {
-                qry1 = @"UPDATE tblMain SET mdate = @date, mType= @type, mSupCusID =@supID
-                            WHERE MainID = @id";
+                qry1 = @"UPDATE tblMain SET mdate = @date, mType = @type, mSupCusID = @supID
+                    WHERE MainID = @id";
             }
 
             SqlCommand cmd1 = new SqlCommand(qry1, MainClass.con);
             cmd1.Parameters.AddWithValue("@id", mainID);
             cmd1.Parameters.AddWithValue("@date", Convert.ToDateTime(TxtDate.Value).Date);
-            cmd1.Parameters.AddWithValue("@type", "PUR");
+            cmd1.Parameters.AddWithValue("@type", "PUR"); // Assuming "PUR" is the type for purchase
             cmd1.Parameters.AddWithValue("@supID", Convert.ToInt32(CbSupplier.SelectedValue));
-            if (MainClass.con.State == ConnectionState.Closed) {MainClass.con.Open();}
 
-            if (mainID ==0)
+            if (MainClass.con.State == ConnectionState.Closed)
+            {
+                MainClass.con.Open();
+            }
+
+            if (mainID == 0) // Execute scalar for insert
             {
                 mainID = Convert.ToInt32(cmd1.ExecuteScalar());
             }
-            else
+            else // Execute non-query for update
             {
                 cmd1.ExecuteNonQuery();
             }
 
-            //insert deatils table
+            // Insert/update details table
             foreach (DataGridViewRow row in DataGridView1.Rows)
             {
                 int did = Convert.ToInt32(row.Cells["Dgvid"].Value);
 
-                if (did == 0) // insert
+                if (did == 0) // Insert new detail
                 {
-                    qry2 = @"INSERT INTO tblDetails VALUES(@mID,@proID,@qty,@price,@amount,@cost)";
+                    qry2 = @"INSERT INTO tblDetails VALUES(@mID, @proID, @qty, @price, @amount, @cost)";
                 }
-                else
+                else // Update existing detail
                 {
                     qry2 = @"UPDATE tblDetails SET dMainID = @mID, productID = @proID,
-                            qty = @qty, price = @price, amount = @amount, cost = @cost
-                            WHERE detailID = @id";
+                    qty = @qty, price = @price, amount = @amount, cost = @cost
+                    WHERE detailID = @id";
                 }
-
 
                 SqlCommand cmd2 = new SqlCommand(qry2, MainClass.con);
                 cmd2.Parameters.AddWithValue("@id", did);
@@ -209,14 +288,16 @@ namespace POS_System.Model
                 cmd2.Parameters.AddWithValue("@price", Convert.ToInt32(row.Cells["DgvCost"].Value));
                 cmd2.Parameters.AddWithValue("@amount", Convert.ToInt32(row.Cells["DgvAmount"].Value));
                 cmd2.Parameters.AddWithValue("@cost", Convert.ToInt32(row.Cells["DgvCost"].Value));
-                record += cmd2.ExecuteNonQuery();
 
+                record += cmd2.ExecuteNonQuery();
             }
 
-            if (record>0)
+            // Check if records were saved successfully
+            if (record > 0)
             {
                 MessageBox.Show("Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                // Reset form fields and variables
                 mainID = 0;
                 supID = 0;
                 TxtDate.Value = DateTime.Now;
@@ -224,8 +305,8 @@ namespace POS_System.Model
                 CbSupplier.SelectedIndex = -1;
                 DataGridView1.Rows.Clear();
             }
-
         }
+
         private void LoadForEdit()
         {
             string qry = "SELECT * FROM tblDetails inner join product on proID = productID WHERE dMainID = " + mainID + "";
