@@ -32,9 +32,35 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +72,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmForgotPassword.Designer.cs">
+      <DependentUpon>FrmForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportLoader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportLoader.Designer.cs">
+      <DependentUpon>FrmReportLoader.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,7 +96,19 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportViewer.Designer.cs">
+      <DependentUpon>FrmReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainClass.cs" />
+    <Compile Include="FrmReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportView.Designer.cs">
+      <DependentUpon>FrmReportView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FrmCategoryAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +157,53 @@
     <Compile Include="Model\UcProuct.Designer.cs">
       <DependentUpon>UcProuct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RptCustomersList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCustomersList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptProductList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptProductList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptProfitOrLossReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptProfitOrLossReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptPurchaseReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptPurchaseReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptSalesReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptSalesReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptStockBalance.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptStockBalance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptSupplierList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptSupplierList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Sample.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +236,12 @@
     <Compile Include="View\FrmCustomerView.Designer.cs">
       <DependentUpon>FrmCustomerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmDashboard.Designer.cs">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmProductView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,11 +272,23 @@
     <Compile Include="View\FrmUserView.Designer.cs">
       <DependentUpon>FrmUserView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmForgotPassword.resx">
+      <DependentUpon>FrmForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportLoader.resx">
+      <DependentUpon>FrmReportLoader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportViewer.resx">
+      <DependentUpon>FrmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportView.resx">
+      <DependentUpon>FrmReportView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model\FrmCategoryAdd.resx">
       <DependentUpon>FrmCategoryAdd.cs</DependentUpon>
@@ -201,14 +316,37 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Reports\RptCustomersList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCustomersList.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptProductList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptProductList.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptProfitOrLossReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptProfitOrLossReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptPurchaseReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptPurchaseReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptSalesReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptSalesReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptStockBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptStockBalance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptSupplierList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptSupplierList.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sample.resx">
       <DependentUpon>Sample.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmCustomerView.resx">
       <DependentUpon>FrmCustomerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmDashboard.resx">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmProductView.resx">
       <DependentUpon>FrmProductView.cs</DependentUpon>
@@ -300,5 +441,102 @@
   <ItemGroup>
     <None Include="Resources\icons\Delete.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\supplier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\Users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\Reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\pCategary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\pProduct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\sSupplier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\pPurchase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\cCustomers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\sSales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\uUsers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\rReports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\reports-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\reports-42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\Stock-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\Person-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\phone-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\Email-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\icons8-qr-code.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\icons8-barcode-60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\Barcode-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\Cost-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\Hot-price-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\icons8-customers.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\icons8-user.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\icons8-password.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\icons8-user-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\icons8-password-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\icons8-password-10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\icons8-date-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\icons8-quantity-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons\icons8-estimate-16.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

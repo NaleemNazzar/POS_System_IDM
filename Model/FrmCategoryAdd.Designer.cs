@@ -51,15 +51,17 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(30, 30);
+            this.label1.Image = global::POS_System.Properties.Resources.Categary;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(43, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 38);
+            this.label1.Size = new System.Drawing.Size(225, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Category Add";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel2
             // 
@@ -103,21 +105,23 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Image = global::POS_System.Properties.Resources.pCategary;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label2.Location = new System.Drawing.Point(88, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 28);
+            this.label2.Size = new System.Drawing.Size(169, 28);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Name";
+            this.label2.Text = "    Category Name";
             // 
             // TxtName
             // 
-            this.TxtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
+            this.TxtName.BackColor = System.Drawing.Color.White;
             this.TxtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TxtName.Location = new System.Drawing.Point(93, 143);
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(250, 33);
             this.TxtName.TabIndex = 0;
-            this.TxtName.Tag = "v";
+            this.TxtName.Tag = "";
             // 
             // FrmCategoryAdd
             // 
@@ -136,7 +140,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCategoryAdd";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

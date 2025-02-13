@@ -12,6 +12,8 @@ namespace POS_System.Model
 {
     public partial class UcProuct : UserControl
     {
+        public string Barcode { get; set; }
+
         public event EventHandler onSelect = null;
         public UcProuct()
         {
